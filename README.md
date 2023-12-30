@@ -44,3 +44,19 @@
     * `@Controller`, `@Service`, `@Repository`
   * 자바 코드로 직접 스프링 빈을 등록한다. 
     * `@Configuration` 이 등록 된 class 에 `@Bean` 으로 의존성을 주입. 
+
+### 개방-폐쇄 원칙(OCP, Open-Closed Principle)
+* 확장에는 열려있고, 수정, 변경에는 닫혀있다.
+* 스프링의 DI (Dependencies Injection)을 사용하면 기존 코드를 전혀 손대지 않고, 설정만으로 구현 클래스를 변경할 수 있다.
+
+### 스프링 통합 테스트
+* `@SpringBootTest`
+  * 스프링 컨테이너와 테스트를 함께 실행한다.
+* `@Transactional`
+  * 테스트 케이스에 이 에노테이션이 완료 후에 항상 롤백한다. 
+  * 이렇게 하면 DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지 않는다.
+
+### 스프링 JdbcTemplate
+* 순수 Jdbc와 동일한 환경설정을 하면 된다.
+* 스프링 JdbcTemplate과 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다. 
+* 하지만 SQL은 직접 작성해야 한다.
