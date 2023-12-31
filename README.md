@@ -60,3 +60,14 @@
 * 순수 Jdbc와 동일한 환경설정을 하면 된다.
 * 스프링 JdbcTemplate과 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다. 
 * 하지만 SQL은 직접 작성해야 한다.
+
+### 스프링 데이터 JPA
+* interface 를 생성하여 JpaRepository 를 extends 하여 사용한다. 
+* 스프링 데이터 JPA 가 JpaRepository 를 extends 한 interface를 `SpringDataJapMemberRepository` 를 스프링 빈으로 자동 등록해 준다. 
+![img.png](img.png)
+* 스프링 데이터 JPA 제공 기능
+  * 인터페이스를 통한 기본적인 CRUD 
+  * `findByName()`, `findByEmail()`처럼 메서드 이름 만으로 조회 기능 제공
+  * 페이징 기능 자동 제공
+* 실무에서는 JPA 와 스프링 데이터 JPA 를 기본으로 사용.
+* 복잡한 동적 쿼리를 QueryDsl 이라는 라이브러리를 사용.
