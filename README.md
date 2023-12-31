@@ -33,7 +33,7 @@
 * `@AfterEach` 와 `@BeforeEach` 를 통해 테스트가 서로 영향이 없도록 할 수 있다.
 * DI(Dependency Injection) 를 이용하여 instance 를 외부에서 생성하여 주입 할 수 있다. 
 
-### 스프링 빈과 의존 관계
+## 스프링 빈과 의존 관계
 * DI: 객체 의존 관계를 외부에서 넣어주는 것을 의존성 주입이라고 한다. 
 * 생성자에 `@Autowired` 가 있으면 스프링이 연관된 객체를 객체 생성 시점에 스프링 컨테이너에서 찾아서 넣어준다. 
 * 스프링은 스프링 컨테이너에서 스프링 빈을 등록할 때, 기본으로 싱글톤으로 등록한다.
@@ -56,12 +56,12 @@
   * 테스트 케이스에 이 에노테이션이 완료 후에 항상 롤백한다. 
   * 이렇게 하면 DB에 데이터가 남지 않으므로 다음 테스트에 영향을 주지 않는다.
 
-### 스프링 JdbcTemplate
+## 스프링 JdbcTemplate
 * 순수 Jdbc와 동일한 환경설정을 하면 된다.
 * 스프링 JdbcTemplate과 MyBatis 같은 라이브러리는 JDBC API에서 본 반복 코드를 대부분 제거해준다. 
 * 하지만 SQL은 직접 작성해야 한다.
 
-### 스프링 데이터 JPA
+## 스프링 데이터 JPA
 * interface 를 생성하여 JpaRepository 를 extends 하여 사용한다. 
 * 스프링 데이터 JPA 가 JpaRepository 를 extends 한 interface를 `SpringDataJapMemberRepository` 를 스프링 빈으로 자동 등록해 준다. 
 ![img.png](img.png)
@@ -71,3 +71,19 @@
   * 페이징 기능 자동 제공
 * 실무에서는 JPA 와 스프링 데이터 JPA 를 기본으로 사용.
 * 복잡한 동적 쿼리를 QueryDsl 이라는 라이브러리를 사용.
+
+##  AOP (Aspect Oriented Programming)
+* 모든 메서드의 호출 시간을 측정하고 싶은 경우 사용.
+* 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern)
+![img_1.png](img_1.png)
+* 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern) 분리
+* 회원가입, 회원 조회에 시간을 측정 하는 기능은 핵심 관심 사항이 아니다.
+* 시간을 측정하는 로직은 공통 관심 사항이다.
+![img_2.png](img_2.png)
+* `TimeTraceAop` class 를 생성해 핵심 관심사항과 공통 관심 사항을 분리 
+### AOP 적용 전 의존 관계
+![img_3.png](img_3.png)
+![img_5.png](img_5.png)
+### AOP 적용 후 의존 관계
+![img_4.png](img_4.png)
+![img_6.png](img_6.png)
