@@ -63,8 +63,8 @@
 
 ## 스프링 데이터 JPA
 * interface 를 생성하여 JpaRepository 를 extends 하여 사용한다. 
-* 스프링 데이터 JPA 가 JpaRepository 를 extends 한 interface를 `SpringDataJapMemberRepository` 를 스프링 빈으로 자동 등록해 준다. 
-![img.png](img.png)
+* 스프링 데이터 JPA 가 JpaRepository 를 extends 한 interface를 `SpringDataJapMemberRepository` 를 스프링 빈으로 자동 등록해 준다.
+  ![img.png](img.png)
 * 스프링 데이터 JPA 제공 기능
   * 인터페이스를 통한 기본적인 CRUD 
   * `findByName()`, `findByEmail()`처럼 메서드 이름 만으로 조회 기능 제공
